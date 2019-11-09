@@ -1,5 +1,5 @@
 {% set name = "rocm-device-libs" %}
-{% set version = "2.7.0" %}
+{% set version = "2.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-ocl-{{ version }}.tar.gz
-  sha256: fd55cd5f9f5caa358dbfb660a2d68b4b5964f35be0b36914ab2895a6b2c9b533
+  sha256: 05bf8c060db68cf5680a05b06ae7c4adefeb0f8d36f357accfa68e5d5185f72b
 
 build:
   number: 0

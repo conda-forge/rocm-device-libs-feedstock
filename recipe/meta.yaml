@@ -10,7 +10,7 @@ source:
   sha256: fd55cd5f9f5caa358dbfb660a2d68b4b5964f35be0b36914ab2895a6b2c9b533
 
 build:
-  number: 1
+  number: 2
   skip: True  # [not linux]
   merge_build_host: true
 

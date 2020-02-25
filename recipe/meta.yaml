@@ -1,5 +1,5 @@
 {% set name = "rocm-device-libs" %}
-{% set version = "2.7.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-ocl-{{ version }}.tar.gz
-  sha256: fd55cd5f9f5caa358dbfb660a2d68b4b5964f35be0b36914ab2895a6b2c9b533
+  sha256: bce5da4adba4ea360cd4a8aff39d25d0d8a900bdd13aff0482b685bb495508f6
 
 build:
-  number: 2
-  skip: True  # [not linux]
+  number: 0
+  skip: true  # [not linux]
   merge_build_host: true
 
 requirements:
@@ -34,7 +34,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'ROCm Device libraries'
+  summary: ROCm Device libraries
 
 extra:
   recipe-maintainers:

@@ -1,18 +1,19 @@
 {% set name = "rocm-device-libs" %}
-{% set version = "2.7.0" %}
+{% set version = "6.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-ocl-{{ version }}.tar.gz
-  sha256: fd55cd5f9f5caa358dbfb660a2d68b4b5964f35be0b36914ab2895a6b2c9b533
+  url: https://github.com/ROCm/ROCm-Device-Libs/archive/refs/tags/rocm-6.0.2.tar.gz
+  sha256: c6d88b9b46e39d5d21bd5a0c1eba887ec473a370b1ed0cebd1d2e910eedc5837
+  patches:
+    - patches/0001-Use-a-folder-inside-lib-for-bitcode-instead-of-top-l.patch
 
 build:
-  number: 2
+  number: 0
   skip: True  # [not linux]
-  merge_build_host: true
 
 requirements:
   build:
@@ -21,19 +22,21 @@ requirements:
     - cmake
     - make
   host:
-    - clangdev 9.*
-    - llvmdev 9.*
+    - rocm-cmake
+    - zlib
+    - clangdev 17.*
+    - llvmdev 17.*
     - llvm
 
 test:
   commands:
-    - test -f $PREFIX/include/ocml.h
+    - test -f $PREFIX/lib/amdgcn/bitcode/hip.bc
 
 about:
-  home: https://github.com/RadeonOpenCompute/ROCm-Device-Libs
-  license: MIT
+  home: https://github.com/ROCm/ROCm-Device-Libs
+  license: NCSA
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.TXT
   summary: 'ROCm Device libraries'
 
 extra:

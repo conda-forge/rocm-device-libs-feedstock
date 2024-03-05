@@ -17,8 +17,6 @@ cmake \
 make VERBOSE=1 -j${CPU_COUNT}
 make install
 
-cp irif/irif.amdgcn.bc $PREFIX/lib/irif.amdgcn.bc
-
 # Copy the [de]activate scripts to $PREFIX/etc/conda/[de]activate.d.
 # This will allow them to be run on environment activation.
 for CHANGE in "activate" "deactivate"

@@ -8,8 +8,8 @@ package:
 source:
   url: https://github.com/ROCm/llvm-project/archive/refs/tags/rocm-{{ version }}.tar.gz
   sha256: 6bd9912441de6caf6b26d1323e1c899ecd14ff2431874a2f5883d3bc5212db34
-  #patches:
-  #  - patches/0001-Use-a-folder-inside-lib-for-bitcode-instead-of-top-l.patch
+  patches:
+    - patches/0001-Use-a-folder-inside-lib-for-bitcode-instead-of-top-l.patch
 
 build:
   number: 0

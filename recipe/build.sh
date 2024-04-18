@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd amd/device-libs
+
 mkdir build
 cd build
 

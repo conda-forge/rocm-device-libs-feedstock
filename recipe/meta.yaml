@@ -1,13 +1,13 @@
 {% set name = "rocm-device-libs" %}
-{% set version = "6.0.2" %}
+{% set version = "6.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/ROCm/ROCm-Device-Libs/archive/refs/tags/rocm-6.0.2.tar.gz
-  sha256: c6d88b9b46e39d5d21bd5a0c1eba887ec473a370b1ed0cebd1d2e910eedc5837
+  url: https://github.com/ROCm/llvm-project/archive/refs/tags/rocm-{{ version }}.tar.gz
+  sha256: 6bd9912441de6caf6b26d1323e1c899ecd14ff2431874a2f5883d3bc5212db34
   patches:
     - patches/0001-Use-a-folder-inside-lib-for-bitcode-instead-of-top-l.patch
 
@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - cmake
     - make
   host:
@@ -42,3 +43,4 @@ about:
 extra:
   recipe-maintainers:
     - isuruf
+    - zklaus

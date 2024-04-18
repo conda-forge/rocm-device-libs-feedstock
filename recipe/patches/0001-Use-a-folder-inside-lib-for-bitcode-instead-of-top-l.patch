@@ -1,5 +1,5 @@
-From e52e01e13939b0a9235c2be6eebd44b2c5889b15 Mon Sep 17 00:00:00 2001
-From: Klaus Zimmermann <klaus.zimmermann@quansight.com>
+From 2377a0284d9dc55507f90341b5c336334f1d2c53 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
 Date: Thu, 18 Apr 2024 12:25:03 -0600
 Subject: [PATCH] Use a folder inside lib for bitcode instead of top level dir
 
@@ -35,5 +35,5 @@ index 07c60eb39a22..7657aa8685b2 100644
  # Generate the install-tree package.
  # We do not know the absolute path to the intall tree until we are installed,
 -- 
-2.43.0
+2.40.1
 

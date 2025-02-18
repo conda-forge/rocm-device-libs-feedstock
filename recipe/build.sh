@@ -9,7 +9,7 @@ cd build
 #export CXX=$PREFIX/bin/clang++
 #export CONDA_BUILD_SYSROOT=$PREFIX/$HOST/sysroot
 
-cmake \
+cmake -LAH \
   -DLLVM_DIR=$PREFIX \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
   -DCMAKE_BUILD_TYPE=Release \
@@ -17,7 +17,7 @@ cmake \
   ..
 
 # make VERBOSE=1 -j${CPU_COUNT}
-make VERBOSE=1 -j1
+make VERBOSE=2 -j1
 make install
 
 # Copy the [de]activate scripts to $PREFIX/etc/conda/[de]activate.d.

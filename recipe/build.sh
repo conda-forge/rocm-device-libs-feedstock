@@ -16,7 +16,8 @@ cmake \
   -DCMAKE_INSTALL_LIBDIR=lib \
   ..
 
-make VERBOSE=1 -j${CPU_COUNT}
+# make VERBOSE=1 -j${CPU_COUNT}
+make VERBOSE=1 -j1
 make install
 
 # Copy the [de]activate scripts to $PREFIX/etc/conda/[de]activate.d.

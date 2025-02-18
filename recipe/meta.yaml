@@ -25,8 +25,8 @@ requirements:
   host:
     - rocm-cmake
     - zlib
-    - clangdev 17.*
-    - llvmdev 17.*
+    - clangdev 18.*
+    - llvmdev 18.*
     - llvm
 
 test:

@@ -1,13 +1,13 @@
 {% set name = "rocm-device-libs" %}
-{% set version = "6.1.1" %}
+{% set version = "6.3.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/ROCm/llvm-project/archive/refs/tags/rocm-{{ version }}.tar.gz
-  sha256: f1a67efb49f76a9b262e9735d3f75ad21e3bd6a05338c9b15c01e6c625c4460d
+  url: https://github.com/ROCm/llvm-project/archive/refs/tags/rocm-{{ version }}.zip
+  sha256: cff7badc347618c6bbb643b95d8ac2609b821988ff8ca5bd2885cd348dcf6dfc
   patches:
     - patches/0001-Use-a-folder-inside-lib-for-bitcode-instead-of-top-l.patch
 
@@ -25,8 +25,8 @@ requirements:
   host:
     - rocm-cmake
     - zlib
-    - clangdev 17.*
-    - llvmdev 17.*
+    - clangdev 19.*
+    - llvmdev 19.*
     - llvm
 
 test:

@@ -1,5 +1,5 @@
 {% set name = "rocm-device-libs" %}
-{% set version = "6.3.3" %}
+{% set version = "6.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ROCm/llvm-project/archive/refs/tags/rocm-{{ version }}.zip
-  sha256: 9757abda86ce811a1490e7c17ac67e26a70a430f4c188ee1bf461001cd571df8
+  sha256: 43e924a707d7c42431370cb98309ae115784cb6785abd613ed9de07dd2c2da08
   patches:
     - patches/0001-Use-a-folder-inside-lib-for-bitcode-instead-of-top-l.patch
 

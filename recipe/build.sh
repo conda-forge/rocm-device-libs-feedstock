@@ -1,11 +1,9 @@
 #!/bin/bash
 
+cd amd/device-libs
+
 mkdir build
 cd build
-
-export CC=$PREFIX/bin/clang
-export CXX=$PREFIX/bin/clang++
-export CONDA_BUILD_SYSROOT=$PREFIX/$HOST/sysroot
 
 cmake \
   -DLLVM_DIR=$PREFIX \
@@ -24,4 +22,3 @@ do
     mkdir -p "${PREFIX}/etc/conda/${CHANGE}.d"
     cp "${RECIPE_DIR}/activate/${CHANGE}.sh" "${PREFIX}/etc/conda/${CHANGE}.d/${PKG_NAME}_${CHANGE}.sh"
 done
-

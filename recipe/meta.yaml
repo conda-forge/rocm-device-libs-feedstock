@@ -44,3 +44,4 @@ extra:
   recipe-maintainers:
     - isuruf
     - zklaus
+    - conda-forge/rocm-core

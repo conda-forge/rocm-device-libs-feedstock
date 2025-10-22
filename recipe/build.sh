@@ -7,18 +7,14 @@ cd build
 
 cmake \
   -DLLVM_DIR=$PREFIX \
-  -DCMAKE_INSTALL_PREFIX=$PREFIX \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_INSTALL_LIBDIR=lib \
+  $CMAKE_ARGS \
+  -DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_NEW:STRING=lib/clang/20/lib/amdgcn \
   ..
 
 make VERBOSE=1 -j${CPU_COUNT}
 make install
 
-# Copy the [de]activate scripts to $PREFIX/etc/conda/[de]activate.d.
-# This will allow them to be run on environment activation.
-for CHANGE in "activate" "deactivate"
-do
-    mkdir -p "${PREFIX}/etc/conda/${CHANGE}.d"
-    cp "${RECIPE_DIR}/activate/${CHANGE}.sh" "${PREFIX}/etc/conda/${CHANGE}.d/${PKG_NAME}_${CHANGE}.sh"
-done
+# We create a symlink from $PREFIX/amdgcn to $PREFIX/lib/clang/20/lib/amdgcn for compatibility with
+# the upstream packaging (see https://rocm.docs.amd.com/en/docs-6.0.0/about/release-notes.html#compiler-location-change)
+# and because otherwise hipcc would not find the rocm-device-libs, see https://github.com/ROCm/llvm-project/blob/rocm-7.0.2/amd/hipcc/src/hipBin_amd.h#L323
+ln -sf $PREFIX/lib/clang/20/lib/amdgcn $PREFIX/amdgcn

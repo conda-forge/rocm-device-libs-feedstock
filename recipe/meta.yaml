@@ -27,7 +27,10 @@ requirements:
     - make
   host:
     - rocm-core {{ version }}
-    - rocm-cmake
+    # There exists rocm-cmake version that do not depend on rocm-core, so to ensure that a compatible version is installed,
+    # let's also constrain the rocm-cmake version
+    # See https://github.com/conda-forge/rocm-device-libs-feedstock/pull/22#issuecomment-3431934615
+    - rocm-cmake {{ version }}
     - zlib
     - clangdev {{ llvm_major_version }}.*
     - llvmdev {{ llvm_major_version }}.*

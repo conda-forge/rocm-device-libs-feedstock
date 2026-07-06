@@ -1,5 +1,5 @@
 context:
-  version: "7.0.2"
+  version: "7.2.4"
   llvm_major_version: "20"
 
 package:
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://github.com/ROCm/llvm-project/archive/refs/tags/rocm-${{ version }}.zip
-  sha256: f6ef7f7b0cbf904c8ee223ec84326e0ae4ea88fb11bb2d0f9ece9f9620844b2a
+  sha256: 3df5359eca53d84a4c0d47dda18dea0f3afcd0382d9f0b3aeb7069bcea31b586
   patches:
     - patches/0001-fix-install-path.patch
 
 build:
-  number: 1
+  number: 0
   skip: not linux
   script: build
 

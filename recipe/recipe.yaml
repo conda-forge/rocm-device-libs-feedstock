@@ -1,6 +1,6 @@
 context:
   version: "7.2.4"
-  llvm_major_version: "20"
+  llvm_major_version: "22"
 
 package:
   name: rocm-device-libs
@@ -11,6 +11,7 @@ source:
   sha256: 3df5359eca53d84a4c0d47dda18dea0f3afcd0382d9f0b3aeb7069bcea31b586
   patches:
     - patches/0001-fix-install-path.patch
+    - patches/0002-backport-llvm-22-device-libs-features.patch
 
 build:
   number: 0
